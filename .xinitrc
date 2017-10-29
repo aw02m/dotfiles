@@ -2,6 +2,7 @@
 
 # XTerm settings
 xrdb -merge $HOME/.Xresources
+xmodmap ~/.Xmodmap
 
 # fcitx settings
 export GTK_IM_MODULE=fcitx

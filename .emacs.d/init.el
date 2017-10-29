@@ -55,12 +55,17 @@
 (setq kept-old-versions   1)
 (setq delete-old-versions t)
 
-
 ;;;----
 ;;; Keybinds
 ;;;----
 ;; set backspace to C-h
 (define-key global-map (kbd "C-h") 'delete-backward-char)
+
+;; set numeric keypad
+(global-set-key (kbd "M-O k") "+")
+(global-set-key (kbd "M-O m") "-")
+(global-set-key (kbd "M-O j") "*")
+(global-set-key (kbd "M-O o") "/")
 
 ;; window resizer
 (defun window-resizer ()

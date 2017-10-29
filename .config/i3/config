@@ -30,7 +30,9 @@ font pango:DejaVu Sans,IPAGothic 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+set $exec_terminal exec --no-startup-id "urxvtc || { [ $? -eq 2 ] && urxvtd -q -o -f && urxvtc; }"
+bindsym $mod+Return $exec_terminal
+bindsym Control+Mod1+t $exec_terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
