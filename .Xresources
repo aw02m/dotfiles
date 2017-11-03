@@ -5,15 +5,15 @@ URxvt.cursorBlink:          true
 URxvt.cursorUnderline:      true
 URxvt.pointerBlank:         true
 URxvt.visualBell:           false
-URxvt.saveLines:            1024
-URxvt.fading:               16
+!URxvt.saveLines:            1024
+!URxvt.fading:               16
 URxvt.font:                 xft:Dejavu Sans Mono-10, xft:IPAGothic
-URxvt.letterSpace:          -1
-URxvt.lineSpace:            0
+!URxvt.letterSpace:          -1
+!URxvt.lineSpace:            0
 URxvt.inputMethod:          fcitx
 URxvt.preeditType:          OnTheSpot
 URxvt.perl-ext:             xim-onthespot 
-URxvt.perl-ext-common:
+!URxvt.perl-ext-common:
 
 *foreground:   #c5c8c6
 *background:   #1d1f21
