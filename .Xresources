@@ -1,3 +1,4 @@
+URxvt*termName:             rxvt-256color
 URxvt.scrollBar_right:      true
 URxvt.scrollBar_floating:   true
 URxvt.scrollstyle:          plain
@@ -11,7 +12,7 @@ URxvt.font:                 xft:Dejavu Sans Mono-10, xft:IPAGothic
 URxvt.letterSpace:          -1
 URxvt.lineSpace:            0
 URxvt.inputMethod:          fcitx
-URxvt.preeditType:          OnTheSpot
+URxvt.preeditType:          OffTheSpot
 URxvt.perl-ext:             xim-onthespot 
 URxvt.perl-ext-common:      xim-onthespot
 
