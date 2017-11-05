@@ -1,8 +1,13 @@
 ;;;----
 ;;; Basic settings
 ;;;----
-;; elisp path and initialization package system
+;; initialization package system
+(require 'package)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
+(unless package-archive-contents (package-refresh-contents))
+
+;; elisp path
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 (load (expand-file-name "~/.roswell/helper.el"))
 
@@ -106,6 +111,27 @@
 (global-set-key "\C-qk" 'windmove-up)
 
 ;;;----
+;;; Company-mode
+;;;----
+(use-package company
+             :config
+             (global-company-mode)
+             (setq company-idle-delay 0.1
+                   company-minimum-prefix-length 2
+                   company-selection-wrap-around t)
+
+             (bind-keys :map company-mode-map
+                        ("C-i" . company-complete))
+             (bind-keys :map company-active-map
+                        ("C-n" . company-select-next)
+                        ("C-p" . company-select-previous)
+                        ("C-s" . company-search-words-regexp))
+             (bind-keys :map company-search-map
+                        ("C-n" . company-select-next)
+                        ("C-p" . company-select-previous)))
+(global-company-mode)
+
+;;;----
 ;;; Scheme-mode
 ;;;----
 (setq scheme-program-name "gosh -i")
@@ -118,3 +144,44 @@
         (get-buffer-create "*scheme*"))
     (run-scheme scheme-program-name))
 (define-key global-map "\C-cs" 'scheme-other-window)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (company clj-refactor cider clojure-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;;;----
+;;; Clojure
+;;;----
+(use-package clojure-mode
+             :init
+             (add-hook 'clojure-mode-hook #'yas-minor-mode)
+             (add-hook 'clojure-mode-hook #'subword-mode))
+
+(use-package cider
+             :init
+             (add-hook 'cider-mode-hook #'clj-refactor-mode)
+             (add-hook 'cider-mode-hook #'company-mode)
+             (add-hook 'cider-mode-hook #'eldoc-mode)
+             (add-hook 'cider-repl-mode-hook #'company-mode)
+             (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+             :diminish subword-mode
+             :config
+             (setq nrepl-log-messages t
+                   cider-repl-display-in-current-window t
+                   cider-repl-use-clojure-font-lock t
+                   cider-prompt-save-file-on-load 'always-save
+                   cider-font-lock-dynamically '(macro core function var)
+                   cider-overlays-use-font-lock t)
+             (cider-repl-toggle-pretty-printing))
+
+(use-package clj-refactor
+             :diminish clj-refactor-mode
+               :config (cljr-add-keybindings-with-prefix "C-c j"))

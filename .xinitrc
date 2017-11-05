@@ -12,7 +12,7 @@ export DefaultIMModule=fcitx
 
 # xorg settings
 xset dpms 0 0 0;xset s off
-xrandr --output HDMI-1 --mode 1920x1080
+xrandr --output HDMI-1 --mode 1920x1080 --pos 1920x0 --output LVDS-1 --mode 1920x1080 --pos 0x0
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -29,4 +29,4 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 exec i3
-#exec openbox-session
+# exec openbox-session
