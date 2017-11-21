@@ -116,19 +116,21 @@
 (use-package company
              :config
              (global-company-mode)
-             (setq company-idle-delay 0.1
-                   company-minimum-prefix-length 2
+             (setq company-idle-delay nil
+                   company-minimum-prefix-length 1
                    company-selection-wrap-around t)
 
              (bind-keys :map company-mode-map
-                        ("C-i" . company-complete))
+                        ("M-i" . company-complete))
              (bind-keys :map company-active-map
-                        ("C-n" . company-select-next)
-                        ("C-p" . company-select-previous)
-                        ("C-s" . company-search-words-regexp))
+                        ("M-n" . company-select-next)
+                        ("M-p" . company-select-previous)
+                        ("M-s" . company-search-words-regexp)
+                        ("C-h" . nil))
              (bind-keys :map company-search-map
-                        ("C-n" . company-select-next)
-                        ("C-p" . company-select-previous)))
+                        ("M-n" . company-select-next)
+                        ("M-p" . company-select-previous)
+                        ("C-h" . nil)))
 (global-company-mode)
 
 ;;;----
@@ -149,6 +151,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(desktop-save-mode t)
  '(package-selected-packages (quote (company clj-refactor cider clojure-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
