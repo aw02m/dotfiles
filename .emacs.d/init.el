@@ -1,5 +1,5 @@
 ;;;----
-;;; Basic settings
+;;; BASIC SETTINGS
 ;;;----
 ;; initialization package system
 (require 'package)
@@ -61,8 +61,18 @@
 (setq delete-old-versions t)
 
 ;;;----
-;;; Keybinds
+;;; MOUSE SETTINGS
 ;;;----
+;; mouse
+(xterm-mouse-mode t)
+(mouse-wheel-mode t)
+(global-set-key   [mouse-4] '(lambda () (interactive) (scroll-down 2)))
+(global-set-key   [mouse-5] '(lambda () (interactive) (scroll-up   2)))
+
+;;;----
+;;; KEYBINDINGS
+;;;----
+
 ;; set backspace to C-h
 (define-key global-map (kbd "C-h") 'delete-backward-char)
 
@@ -111,7 +121,7 @@
 (global-set-key "\C-qk" 'windmove-up)
 
 ;;;----
-;;; Company-mode
+;;; COMPANY-MODE
 ;;;----
 (use-package company
              :config
@@ -134,7 +144,7 @@
 (global-company-mode)
 
 ;;;----
-;;; Scheme-mode
+;;; SCHEME-MODE
 ;;;----
 (setq scheme-program-name "gosh -i")
 (autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
@@ -161,7 +171,7 @@
  )
 
 ;;;----
-;;; Clojure
+;;; CLOJURE
 ;;;----
 (use-package clojure-mode
              :init
