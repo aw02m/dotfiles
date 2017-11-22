@@ -183,10 +183,11 @@ bar {
                background         #161616
                statusline         #ffffff
                separator          #888888
-
-               focused_workspace  #4c7899 #285577 #ffffff
-               active_workspace   #333333 #5f676a #ffffff
-               inactive_workspace #333333 #222222 #888888
+               
+               # class            border  backgr. text
+               focused_workspace  #161616 #444444 #ffffff
+               active_workspace   #161616 #222222 #ffffff
+               inactive_workspace #161616 #222222 #ffffff
                urgent_workspace   #2f343a #900000 #ffffff
                binding_mode       #2f343a #900000 #ffffff
         }
