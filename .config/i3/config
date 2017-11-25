@@ -155,9 +155,9 @@ bindsym $mod+r mode "resize"
 focus_follows_mouse yes
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #444444 #444444 #888888 #444444   #444444
-client.focused_inactive #222222 #222222 #444444 #222222   #222222
-client.unfocused        #222222 #222222 #444444 #222222   #222222
+client.focused          #444444 #444444 #ffffff #444444   #444444
+client.focused_inactive #222222 #222222 #888888 #222222   #222222
+client.unfocused        #222222 #222222 #888888 #222222   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #222222 #0c0c0c #ffffff #000000   #0c0c0c
 
@@ -185,9 +185,9 @@ bar {
                separator          #888888
                
                # class            border  backgr. text
-               focused_workspace  #161616 #444444 #ffffff
-               active_workspace   #161616 #222222 #ffffff
-               inactive_workspace #161616 #222222 #ffffff
+               focused_workspace  #646464 #646464 #ffffff
+               active_workspace   #222222 #222222 #ffffff
+               inactive_workspace #222222 #222222 #ffffff
                urgent_workspace   #2f343a #900000 #ffffff
                binding_mode       #2f343a #900000 #ffffff
         }
