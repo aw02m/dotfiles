@@ -9,7 +9,7 @@
 
 ;; elisp path
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
-(load (expand-file-name "~/.roswell/helper.el"))
+;(load (expand-file-name "~/.roswell/helper.el"))
 
 ;; set cording to UTF-8
 (prefer-coding-system 'utf-8)
@@ -120,81 +120,81 @@
 (global-set-key "\C-qj" 'windmove-down)
 (global-set-key "\C-qk" 'windmove-up)
 
-;;;----
-;;; COMPANY-MODE
-;;;----
-(use-package company
-             :config
-             (global-company-mode)
-             (setq company-idle-delay nil
-                   company-minimum-prefix-length 1
-                   company-selection-wrap-around t)
+;; ;;;----
+;; ;;; COMPANY-MODE
+;; ;;;----
+;; (use-package company
+;;              :config
+;;              (global-company-mode)
+;;              (setq company-idle-delay nil
+;;                    company-minimum-prefix-length 1
+;;                    company-selection-wrap-around t)
 
-             (bind-keys :map company-mode-map
-                        ("M-i" . company-complete))
-             (bind-keys :map company-active-map
-                        ("M-n" . company-select-next)
-                        ("M-p" . company-select-previous)
-                        ("M-s" . company-search-words-regexp)
-                        ("C-h" . nil))
-             (bind-keys :map company-search-map
-                        ("M-n" . company-select-next)
-                        ("M-p" . company-select-previous)
-                        ("C-h" . nil)))
-(global-company-mode)
+;;              (bind-keys :map company-mode-map
+;;                         ("M-i" . company-complete))
+;;              (bind-keys :map company-active-map
+;;                         ("M-n" . company-select-next)
+;;                         ("M-p" . company-select-previous)
+;;                         ("M-s" . company-search-words-regexp)
+;;                         ("C-h" . nil))
+;;              (bind-keys :map company-search-map
+;;                         ("M-n" . company-select-next)
+;;                         ("M-p" . company-select-previous)
+;;                         ("C-h" . nil)))
+;; (global-company-mode)
 
-;;;----
-;;; SCHEME-MODE
-;;;----
-(setq scheme-program-name "gosh -i")
-(autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
-(autoload 'scheme-mode "cmuscheme" "Run an inferior Scheme process." t)
-(defun scheme-other-window()
-    "Run scheme on other window"
-    (interactive)
-    (switch-to-buffer-other-window
-        (get-buffer-create "*scheme*"))
-    (run-scheme scheme-program-name))
-(define-key global-map "\C-cs" 'scheme-other-window)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(desktop-save-mode t)
- '(package-selected-packages (quote (company clj-refactor cider clojure-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; ;;;----
+;; ;;; SCHEME-MODE
+;; ;;;----
+;; (setq scheme-program-name "gosh -i")
+;; (autoload 'scheme-mode "cmuscheme" "Major mode for Scheme." t)
+;; (autoload 'scheme-mode "cmuscheme" "Run an inferior Scheme process." t)
+;; (defun scheme-other-window()
+;;     "Run scheme on other window"
+;;     (interactive)
+;;     (switch-to-buffer-other-window
+;;         (get-buffer-create "*scheme*"))
+;;     (run-scheme scheme-program-name))
+;; (define-key global-map "\C-cs" 'scheme-other-window)
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(desktop-save-mode t)
+;;  '(package-selected-packages (quote (company clj-refactor cider clojure-mode))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
 
-;;;----
-;;; CLOJURE
-;;;----
-(use-package clojure-mode
-             :init
-             (add-hook 'clojure-mode-hook #'yas-minor-mode)
-             (add-hook 'clojure-mode-hook #'subword-mode))
+;; ;; ;;;----
+;; ;; ;;; CLOJURE
+;; ;; ;;;----
+;; ;; (use-package clojure-mode
+;; ;;              :init
+;; ;;              (add-hook 'clojure-mode-hook #'yas-minor-mode)
+;; ;;              (add-hook 'clojure-mode-hook #'subword-mode))
 
-(use-package cider
-             :init
-             (add-hook 'cider-mode-hook #'clj-refactor-mode)
-             (add-hook 'cider-mode-hook #'company-mode)
-             (add-hook 'cider-mode-hook #'eldoc-mode)
-             (add-hook 'cider-repl-mode-hook #'company-mode)
-             (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-             :diminish subword-mode
-             :config
-             (setq nrepl-log-messages t
-                   cider-repl-display-in-current-window t
-                   cider-repl-use-clojure-font-lock t
-                   cider-prompt-save-file-on-load 'always-save
-                   cider-font-lock-dynamically '(macro core function var)
-                   cider-overlays-use-font-lock t)
-             (cider-repl-toggle-pretty-printing))
+;; ;; (use-package cider
+;; ;;              :init
+;; ;;              (add-hook 'cider-mode-hook #'clj-refactor-mode)
+;; ;;              (add-hook 'cider-mode-hook #'company-mode)
+;; ;;              (add-hook 'cider-mode-hook #'eldoc-mode)
+;; ;;              (add-hook 'cider-repl-mode-hook #'company-mode)
+;; ;;              (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+;; ;;              :diminish subword-mode
+;; ;;              :config
+;; ;;              (setq nrepl-log-messages t
+;; ;;                    cider-repl-display-in-current-window t
+;; ;;                    cider-repl-use-clojure-font-lock t
+;; ;;                    cider-prompt-save-file-on-load 'always-save
+;; ;;                    cider-font-lock-dynamically '(macro core function var)
+;; ;;                    cider-overlays-use-font-lock t)
+;; ;;              (cider-repl-toggle-pretty-printing))
 
-(use-package clj-refactor
-             :diminish clj-refactor-mode
-               :config (cljr-add-keybindings-with-prefix "C-c j"))
+;; ;; (use-package clj-refactor
+;; ;;              :diminish clj-refactor-mode
+;; ;;                :config (cljr-add-keybindings-with-prefix "C-c j"))
