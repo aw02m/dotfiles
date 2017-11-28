@@ -1,3 +1,5 @@
+Xcursor.size: 8
+
 URxvt*termName:             rxvt-256color
 URxvt.scrollBar_right:      true
 URxvt.scrollBar_floating:   true
