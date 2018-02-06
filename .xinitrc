@@ -15,6 +15,7 @@ dropbox &
 
 # xorg settings
 xset dpms 0 0 0;xset s off
+setxkbmap -option "ctrl:nocaps"
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -30,5 +31,6 @@ fi
 # xterm -geometry 80x20+494-0 &
 # exec xterm -geometry 80x66+0+0 -name login
 
-exec i3
+exec startkde
+# exec i3
 # exec openbox-session

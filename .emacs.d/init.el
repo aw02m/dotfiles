@@ -9,7 +9,11 @@
 
 ;; elisp path
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
-;(load (expand-file-name "~/.roswell/helper.el"))
+(load (expand-file-name "~/.roswell/helper.el"))
+
+;; emacs-mozc
+(require 'mozc)
+(setq default-input-method "japanese-mozc")
 
 ;; set cording to UTF-8
 (prefer-coding-system 'utf-8)
@@ -33,6 +37,9 @@
 
 ;; show file size
 (size-indication-mode t)
+
+;; clipboard
+(setq x-select-enable-clipboard t)
 
 ;; don't show tool and menu bar
 (if window-system (tool-bar-mode -1) (tool-bar-mode -1))
